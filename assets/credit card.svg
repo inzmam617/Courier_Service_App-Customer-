@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="299.934" height="225.976" viewBox="0 0 299.934 225.976">
+  <g id="Group_2748" data-name="Group 2748" transform="translate(-64 -136.553)">
+    <g id="Group_2747" data-name="Group 2747">
+      <g id="Group_1367" data-name="Group 1367" transform="translate(64 136.553)" opacity="0.35">
+        <g id="Texture_left" data-name="Texture left" transform="translate(158.121 0)">
+          <path id="Shape" d="M73.3,36.751A36.635,36.635,0,0,0,2.79,22.687,36.836,36.836,0,0,0,0,36.751H73.3Z" transform="translate(0 84.384)" fill="#87d8ea"/>
+          <path id="Shape-2" data-name="Shape" d="M0,73.3a36.829,36.829,0,0,0,14.062-2.79,36.756,36.756,0,0,0,11.922-7.945A36.649,36.649,0,0,0,33.95,50.678a36.565,36.565,0,0,0,0-28.052,36.648,36.648,0,0,0-7.966-11.891A36.755,36.755,0,0,0,14.062,2.79,36.829,36.829,0,0,0,0,0V73.3Z" transform="translate(0 0.199)" fill="#87d8ea"/>
+          <path id="Shape-3" data-name="Shape" d="M36.747,36.751a36.739,36.739,0,0,1-14.062-2.8,36.752,36.752,0,0,1-11.922-7.967A36.757,36.757,0,0,1,2.8,14.064,36.75,36.75,0,0,1,0,0H36.747Z" transform="translate(52.533 189.224)" fill="#87d8ea"/>
+          <path id="Shape-4" data-name="Shape" d="M0,0A36.739,36.739,0,0,1,14.062,2.8a36.752,36.752,0,0,1,11.922,7.967A36.757,36.757,0,0,1,33.95,22.687a36.75,36.75,0,0,1,2.8,14.064H0Z" transform="translate(0 137.385)" fill="#87d8ea"/>
+          <path id="Shape-5" data-name="Shape" d="M0,36.751A36.748,36.748,0,0,1,36.747,0V36.751Z" transform="translate(52.533 0.397)" fill="#87d8ea"/>
+          <path id="Shape-6" data-name="Shape" d="M0,18.376A18.375,18.375,0,0,1,18.374,0H36.747V36.751H18.374A18.375,18.375,0,0,1,0,18.376Z" transform="translate(0 189.224)" fill="#87d8ea"/>
+          <path id="Shape-7" data-name="Shape" d="M0,18.376A18.375,18.375,0,0,0,18.374,36.751H36.747V0H18.374A18.375,18.375,0,0,0,0,18.376Z" transform="translate(52.533 137.618)" fill="#87d8ea"/>
+          <ellipse id="Shape-8" data-name="Shape" cx="14.6" cy="14.601" rx="14.6" ry="14.601" transform="translate(60.764 44.3)" fill="#87d8ea"/>
+          <path id="Shape-9" data-name="Shape" d="M0,0A18.186,18.186,0,0,1,6.993,1.4a18.27,18.27,0,0,1,5.929,3.983,18.383,18.383,0,0,1,3.961,5.961,18.464,18.464,0,0,1,1.391,7.032,18.464,18.464,0,0,1-1.391,7.032,18.383,18.383,0,0,1-3.961,5.961,18.269,18.269,0,0,1-5.929,3.983A18.187,18.187,0,0,1,0,36.751Z" transform="translate(105.066 188.76)" fill="#87d8ea"/>
+          <path id="Shape-10" data-name="Shape" d="M0,73.3V0A36.826,36.826,0,0,1,14.063,2.79a36.757,36.757,0,0,1,11.922,7.945A36.648,36.648,0,0,1,33.95,22.626a36.564,36.564,0,0,1,0,28.052,36.647,36.647,0,0,1-7.966,11.891,36.756,36.756,0,0,1-11.922,7.945A36.826,36.826,0,0,1,0,73.3Z" transform="translate(105.066 43.903)" fill="#87d8ea"/>
+          <path id="Shape-11" data-name="Shape" d="M36.747,18.376A18.375,18.375,0,0,1,18.374,36.751H0V0H18.374A18.375,18.375,0,0,1,36.747,18.376Z" transform="translate(105.066)" fill="#87d8ea"/>
+          <path id="Shape-12" data-name="Shape" d="M14.6,0A14.6,14.6,0,1,1,0,14.6,14.6,14.6,0,0,1,14.6,0Z" transform="translate(105.066 145.27)" fill="#87d8ea"/>
+        </g>
+        <g id="Texture_left-2" data-name="Texture left" transform="translate(0 0)">
+          <path id="Shape-13" data-name="Shape" d="M0,36.751A36.635,36.635,0,0,1,70.506,22.687,36.836,36.836,0,0,1,73.3,36.751H0Z" transform="translate(68.517 84.384)" fill="#87d8ea"/>
+          <path id="Shape-14" data-name="Shape" d="M36.747,73.3a36.652,36.652,0,1,1,0-73.3V73.3Z" transform="translate(105.066 0.199)" fill="#87d8ea"/>
+          <path id="Shape-15" data-name="Shape" d="M0,36.751a36.739,36.739,0,0,0,14.062-2.8,36.752,36.752,0,0,0,11.921-7.967A36.757,36.757,0,0,0,33.95,14.064,36.75,36.75,0,0,0,36.747,0H0Z" transform="translate(52.533 189.224)" fill="#87d8ea"/>
+          <path id="Shape-16" data-name="Shape" d="M36.747,0A36.75,36.75,0,0,0,0,36.751H36.747Z" transform="translate(105.066 137.385)" fill="#87d8ea"/>
+          <path id="Shape-17" data-name="Shape" d="M36.747,36.751a36.751,36.751,0,0,0-2.8-14.064,36.754,36.754,0,0,0-7.966-11.923A36.748,36.748,0,0,0,14.062,2.8,36.743,36.743,0,0,0,0,0V36.751Z" transform="translate(52.533 0.397)" fill="#87d8ea"/>
+          <path id="Shape-18" data-name="Shape" d="M36.747,18.376A18.375,18.375,0,0,0,18.374,0H0V36.751H18.374A18.375,18.375,0,0,0,36.747,18.376Z" transform="translate(105.066 189.224)" fill="#87d8ea"/>
+          <path id="Shape-19" data-name="Shape" d="M36.747,18.376A18.375,18.375,0,0,1,18.374,36.751H0V0H18.374A18.375,18.375,0,0,1,36.747,18.376Z" transform="translate(52.533 137.618)" fill="#87d8ea"/>
+          <ellipse id="Shape-20" data-name="Shape" cx="14.6" cy="14.601" rx="14.6" ry="14.601" transform="translate(51.849 44.3)" fill="#87d8ea"/>
+          <path id="Shape-21" data-name="Shape" d="M18.274,0A18.223,18.223,0,0,0,5.352,5.382a18.4,18.4,0,0,0,5.929,29.97,18.187,18.187,0,0,0,6.993,1.4Z" transform="translate(18.473 188.76)" fill="#87d8ea"/>
+          <path id="Shape-22" data-name="Shape" d="M36.747,73.3V0a36.652,36.652,0,1,0,0,73.3Z" transform="translate(0 43.903)" fill="#87d8ea"/>
+          <path id="Shape-23" data-name="Shape" d="M0,18.376A18.375,18.375,0,0,0,18.374,36.751H36.747V0H18.374A18.375,18.375,0,0,0,0,18.376Z" transform="translate(0)" fill="#87d8ea"/>
+          <path id="Shape-24" data-name="Shape" d="M14.6,0A14.6,14.6,0,1,0,29.2,14.6,14.6,14.6,0,0,0,14.6,0Z" transform="translate(7.548 145.27)" fill="#87d8ea"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_2144" data-name="Group 2144" transform="translate(2)">
+      <path id="Base" d="M7.47,0H256.793a7.47,7.47,0,0,1,7.47,7.47V141.937a7.47,7.47,0,0,1-7.47,7.47H7.47A7.47,7.47,0,0,1,0,141.937V7.47A7.47,7.47,0,0,1,7.47,0Z" transform="translate(80 167)" fill="#87d8ea"/>
+      <g id="Icon" transform="translate(277.212 263.967)" style="mix-blend-mode: luminosity;isolation: isolate">
+        <g id="Group" opacity="0">
+          <rect id="Rectangle" width="40.132" height="26.543" fill="#fff"/>
+        </g>
+        <rect id="Rectangle-2" data-name="Rectangle" width="10.587" height="17.291" transform="translate(14.774 4.624)" fill="#ff5f00"/>
+        <path id="Path" d="M13.591,10.995a10.978,10.978,0,0,1,4.2-8.644,11,11,0,1,0,0,17.291A10.978,10.978,0,0,1,13.591,10.995Z" transform="translate(2.274 2.277)" fill="#eb001b"/>
+        <path id="Shape-25" data-name="Shape" d="M.84.428V.1L.72.382H.639L.519.1V.428H.439V0H.55L.678.306.806,0H.917V.428Zm-.7,0V.074H0V0H.364V.074H.21V.428Z" transform="translate(36.595 19.658)" fill="#f79e1b"/>
+        <path id="Path-2" data-name="Path" d="M17.792,11A11,11,0,0,1,0,19.643,11,11,0,0,0,4.2,11,11,11,0,0,0,0,2.352,11,11,0,0,1,17.792,11Z" transform="translate(20.065 2.273)" fill="#f79e1b"/>
+      </g>
+      <text id="_3_580.04" data-name="&amp;3,580.04" transform="translate(104 264)" fill="#fff" font-size="16" font-family="SegoeUI, Segoe UI" letter-spacing="-0.025em"><tspan x="0" y="17">3,580.04</tspan></text>
+      <text id="Travel_Card" data-name="Travel Card" transform="translate(104 238)" fill="#fff" font-size="12" font-family="SegoeUI, Segoe UI" letter-spacing="-0.033em" opacity="0.6"><tspan x="0" y="13">Shopping Card</tspan></text>
+      <text id="_9000" data-name="**** 9000" transform="translate(104 209)" fill="#fff" font-size="14" font-family="SegoeUI, Segoe UI" letter-spacing="-0.057em"><tspan x="0" y="0">1235657667</tspan></text>
+      <text id="_01_22" data-name="01 / 22" transform="translate(277 208)" fill="#fff" font-size="13" font-family="SegoeUI, Segoe UI" letter-spacing="-0.057em"><tspan x="0" y="0">01 / 22</tspan></text>
+    </g>
+  </g>
+</svg>
