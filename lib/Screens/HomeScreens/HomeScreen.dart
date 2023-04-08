@@ -2,6 +2,7 @@ import 'package:dilivery_app_new/Screens/Notification/notification.dart';
 import 'package:dilivery_app_new/Screens/Order_Details/order_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,6 +15,22 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isSwitched = false;
   bool isSwitched1 = false;
 
+  String name = "";
+  String email = "";
+  // const account({Key? key}) : super(key: key);
+  void UserInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      name = prefs.getString('name').toString()! ;
+      email = prefs.getString('email').toString()! ;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    UserInfo();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,11 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             radius: 35,
                           ),
                           Text(
-                            "Inzmam Malik",
+                            name,
                             style: TextStyle(fontSize: 24, color: Colors.black),
                           ),
                           Text(
-                            "inzmammalik@gmail.com",
+                           email,
                             style:
                                 TextStyle(fontSize: 10, color: Color(0xffCAC2C2)),
                           )
@@ -258,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Hi, Inzmam",
+              "Hi, ${name}",
               style: TextStyle(color: Colors.white, fontSize: 22),
             ),
             Text(

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:dilivery_app_new/API/customer_information.dart';
 import 'package:dilivery_app_new/model/signInModel.dart';
 import "package:http/http.dart" as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -39,6 +40,7 @@ class ApiServiceForSignIn {
         final prefs = await SharedPreferences.getInstance();
         prefs.setString("userId", jsonData["userId"].toString());
         prefs.setString("token", jsonData["token"].toString());
+        ApiServiceForUserInfo.GetUserInfo();
 
         return SignInResponse.fromJson(jsonData);
       } catch (e) {}

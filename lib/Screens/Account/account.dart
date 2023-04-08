@@ -3,11 +3,30 @@ import 'package:dilivery_app_new/API/cusomer_deleteId.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../SignIn_SignUp/SignIn.dart';
 
-class account extends StatelessWidget {
-  const account({Key? key}) : super(key: key);
+class account extends StatefulWidget {
+  @override
+  State<account> createState() => _accountState();
+}
+
+class _accountState extends State<account> {
+  String name = "";
+  // const account({Key? key}) : super(key: key);
+  void UserInfo() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      name = prefs.getString('name').toString()! ;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    UserInfo();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,33 +43,21 @@ class account extends StatelessWidget {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: Row(
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: Colors.black,
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 100),
-                          child: Text(
-                            "Account",
-                            style: TextStyle(fontSize: 22, color: Colors.black),
-                          ),
-                        )
-                      ],
+                    padding: const EdgeInsets.only(top: 30,bottom: 20),
+                    child: Center(
+                      child: Text(
+                        "Account",
+                        style: TextStyle(fontSize: 22, color: Colors.black),
+                      ),
                     ),
                   ),
+
                   CircleAvatar(
                     backgroundImage: AssetImage("assets/pic.png.jpg"),
                     radius: 45,
                   ),
-                  Text(
-                    "Inzmam Malik",
+                  SizedBox(height: 10,),
+                  Text(name,
                     style: TextStyle(fontSize: 14, color: Color(0xffFF970B)),
                   )
                 ],

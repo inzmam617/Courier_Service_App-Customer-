@@ -23,6 +23,10 @@ class ApiServiceForLogout{
    final String res = response.body;
    if(res != "null"){
     try {
+     prefs.remove("name");
+     prefs.remove("email");
+     prefs.remove("userId");
+     prefs.remove("token");
      final jsonData = json.decode(res) as Map<String , dynamic>;
      return LogOutModel.fromJson(jsonData);
     }

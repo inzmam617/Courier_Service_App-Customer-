@@ -20,6 +20,10 @@ class ApiServiceForDeleteUserId{
     final String res = respone.body;
     if(res != "null"){
       try{
+        prefs.remove("name");
+        prefs.remove("email");
+        prefs.remove("userId");
+        prefs.remove("token");
         final jsonData = json.decode(res) as Map<String ,dynamic> ;
         return DeleteUserID.fromJson(jsonData);
       }
