@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../API/customerSIgnUp.dart';
+import '../../API/customerSIgnUp_SignIn.dart';
 import '../../model/signUpModel.dart';
 import 'SignIn.dart';
 
@@ -133,12 +133,12 @@ class _SignUpState extends State<SignUp> {
                 onPressed: () async{
                   Map<String, dynamic> body = {
                     "name": "name.text",
-                    "email": "immuhammadfaizan@gmail.com",
+                    "email": "inzmam2@gmail.com",
                     "password": "mysecretpassword"
                   };
                   // Send the API request
                   await ApiServiceForSignup.signup(body).then((value) => {
-                    if(value.id!=null){
+                    if(value.message == "User created"){
                       Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
                     return SignIn();
                   }))
@@ -147,8 +147,8 @@ class _SignUpState extends State<SignUp> {
                     showDialog(
                     context: context,
                     builder: (BuildContext context) => CupertinoAlertDialog(
-                      title: new Text("Error"),
-                      content: new Text(value.errorMessage.toString()),
+                      title: Text("Error"),
+                      content: value.error == null ? Text(value.message.toString()) : Text(value.error.toString()),
                       actions: <Widget>[
                         CupertinoDialogAction(
                           onPressed: () {
@@ -161,6 +161,7 @@ class _SignUpState extends State<SignUp> {
                   )
                     }
                   });
+
 
                 },
                 child: Text("Sign Up"),

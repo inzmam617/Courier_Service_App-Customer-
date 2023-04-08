@@ -1,5 +1,10 @@
+import 'package:dilivery_app_new/API/cusomer_LogOut.dart';
+import 'package:dilivery_app_new/API/cusomer_deleteId.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../SignIn_SignUp/SignIn.dart';
 
 class account extends StatelessWidget {
   const account({Key? key}) : super(key: key);
@@ -107,7 +112,33 @@ class account extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10),
-          InkWell(onTap: (){},
+          InkWell(onTap: () {
+
+            ApiServiceForLogout.logout().then((value)  {
+              if(value.message == "Customer logged out successfully"){
+                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                  return SignIn();
+                }));
+
+              }else
+                showDialog(
+                context: context,
+                builder: (BuildContext context) => CupertinoAlertDialog(
+                  title: const Text("Error"),
+                  content: value.error == null ? Text(value.message.toString()) : Text(value.error.toString()),
+                  actions: <Widget>[
+                    CupertinoDialogAction(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("Ok"),
+                    ),
+                  ],
+                ),
+              );
+            });
+
+          },
             child: Container(
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -129,6 +160,58 @@ class account extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 10),
+
+          InkWell(onTap: () {
+
+            ApiServiceForDeleteUserId.deleteuser().then((value)  {
+              if(value.message == "Customer deleted successfully"){
+                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                  return SignIn();
+                }));
+
+              }else
+                showDialog(
+                context: context,
+                builder: (BuildContext context) => CupertinoAlertDialog(
+                  title: const Text("Error"),
+                  content: value.error == null ? Text(value.message.toString()) : Text(value.error.toString()),
+                  actions: <Widget>[
+                    CupertinoDialogAction(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("Ok"),
+                    ),
+                  ],
+                ),
+              );
+            });
+
+          },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 3,
+                      offset: Offset(1.0,2.0)
+                  )]
+              ),
+              height: 50,
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15,right: 270),
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(Icons.delete ,color: Colors.blue,),
+                    // SvgPicture.asset("assets/Iconly-Broken-Login.svg"),
+                    Text("Delete",style: TextStyle(fontSize: 15,color: Colors.black),),
+                  ],),
+              ),
+            ),
+          ),
+
         ],
       ),
     );

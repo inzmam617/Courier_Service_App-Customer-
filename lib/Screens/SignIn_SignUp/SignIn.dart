@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../API/customerSIgnUp_SignIn.dart';
 import '../Bottom bar/Bottom_bar.dart';
 import '../HomeScreens/HomeScreen.dart';
 import 'SignUp.dart';
@@ -101,9 +103,39 @@ class _SignInState extends State<SignIn> {
                     backgroundColor:
                         MaterialStateProperty.all(Color(0xff87D8EA))),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
-                    return Bottom_bar();
-                  }));
+                  Map<String ,dynamic> body = {
+                    // "email": " immuhammadfaizan@gmail.com",
+                    // "password": "mysecretpassword"
+
+                  "email": "inzmam2@gmail.com",
+                  "password": "mysecretpassword"
+
+                  };
+                  ApiServiceForSignIn.signin(body).then((value) {
+                    if(value.userId != null){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                        return Bottom_bar();
+                      }));
+                    }
+                    else{
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) => CupertinoAlertDialog(
+                        title: const Text("Error"),
+                        content: Text(value.message.toString()),
+                        actions: <Widget>[
+                          CupertinoDialogAction(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("Ok"),
+                          ),
+                        ],
+                      ));
+                    }
+
+                  });
+
                 },
                 child: Text("Sign in"),
               ),
