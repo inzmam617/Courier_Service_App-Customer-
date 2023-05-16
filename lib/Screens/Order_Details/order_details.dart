@@ -1,10 +1,26 @@
-import 'package:dilivery_app_new/Screens/Order_Details/order_details_one.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class order_details extends StatelessWidget {
-  const order_details({Key? key}) : super(key: key);
+import '../../API/storeOrder.dart';
+import '../Track_Order/track_order.dart';
 
+class order_details extends StatefulWidget {
+  final type,l1,l2,l3,l4;
+  const order_details({Key? key,required this.type,required this.l1,required this.l2,required this.l3,required this.l4});
+
+  @override
+  State<order_details> createState() => _order_detailsState();
+}
+
+class _order_detailsState extends State<order_details> {
+
+  TextEditingController packageType = TextEditingController();
+  TextEditingController packageSize = TextEditingController();
+  TextEditingController packageWeight = TextEditingController();
+  TextEditingController receiverName = TextEditingController();
+  TextEditingController receiverNUmber = TextEditingController();
+  String selected="false";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,18 +89,63 @@ class order_details extends StatelessWidget {
                         ]),
                     height: 30,
                     width: 300,
-                    child: TextFormField(
-                      cursorWidth: 0.5,
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 20,bottom: 20),
-                          hintText: "Box",
-                          hintStyle:
-                              TextStyle(fontSize: 11, color: Color(0xffCAC2C2)),
-                          suffixIcon: SvgPicture.asset(
-                            "assets/Arrow - Right 2.svg",
-                            fit: BoxFit.scaleDown,
+                    child: DropdownButtonFormField(
+                      decoration: InputDecoration(border: InputBorder.none),
+                      iconSize: 0.0,
+                      value: "Box",
+                      items: [
+                        DropdownMenuItem(
+                          child: Text(
+                            "Box",
+                            style:
+                            TextStyle(fontSize: 11, color: Color(0xffCAC2C2)),
                           ),
-                          border: InputBorder.none),
+                          value: "Box",
+                        ),
+                        DropdownMenuItem(
+                          child: Text(
+                            "Bag",
+                            style:
+                            TextStyle(fontSize: 11, color: Color(0xffCAC2C2)),
+                          ),
+                          value: "Bag",
+                        ),
+                        DropdownMenuItem(
+                          child: Text(
+                            "Shopping Bag",
+                            style:
+                            TextStyle(fontSize: 11, color: Color(0xffCAC2C2)),
+                          ),
+                          value: "Shopping Bag",
+                        ),
+                        DropdownMenuItem(
+                          child: Text(
+                            "Book",
+                            style:
+                            TextStyle(fontSize: 11, color: Color(0xffCAC2C2)),
+                          ),
+                          value: "Book",
+                        ),
+                        DropdownMenuItem(
+                          child: Text(
+                            "Electronics",
+                            style:
+                            TextStyle(fontSize: 11, color: Color(0xffCAC2C2)),
+                          ),
+                          value: "Electronics",
+                        ),
+                        DropdownMenuItem(
+                          child: Text(
+                            "Grocery",
+                            style:
+                            TextStyle(fontSize: 11, color: Color(0xffCAC2C2)),
+                          ),
+                          value: "Grocery",
+                        )
+                      ],
+                      onChanged: (value) {
+                        packageType.text=value.toString();
+                      },
                     ),
                   ),
                   SizedBox(height: 5),
@@ -112,6 +173,8 @@ class order_details extends StatelessWidget {
                     height: 30,
                     width: 300,
                     child: TextFormField(
+                      controller: packageSize,
+                      keyboardType: TextInputType.number,
                       cursorWidth: 0.5,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(left: 20,bottom: 20),
@@ -150,6 +213,8 @@ class order_details extends StatelessWidget {
                     height: 30,
                     width: 300,
                     child: TextFormField(
+                      controller: packageWeight,
+                      keyboardType: TextInputType.number,
                       cursorWidth: 0.5,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(left: 20,bottom: 20),
@@ -212,6 +277,8 @@ class order_details extends StatelessWidget {
                     height: 30,
                     width: 300,
                     child: TextFormField(
+                      controller: receiverName,
+
                       cursorWidth: 0.5,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(left: 20, bottom: 20),
@@ -246,6 +313,8 @@ class order_details extends StatelessWidget {
                     height: 30,
                     width: 300,
                     child: TextFormField(
+                      controller: receiverNUmber,
+                      keyboardType: TextInputType.number,
                       cursorWidth: 0.5,
                       decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(left: 20, bottom: 20),
@@ -280,49 +349,67 @@ class order_details extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(32),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 3,
-                              offset: Offset(1.0, 2.0))
-                        ]),
-                    height: 30,
-                    width: 300,
-                    child: TextFormField(
-                      cursorWidth: 0.5,
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 20, bottom: 16.5),
-                          hintText: "Bank",
-                          hintStyle:
-                              TextStyle(fontSize: 13, color: Color(0xff263238)),
-                          border: InputBorder.none),
+                  InkWell(
+                    onTap: ()async{
+                      selected="bank";
+                      setState(() {
+
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: selected=="bank"?Colors.red:Colors.white,
+                          borderRadius: BorderRadius.circular(32),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 3,
+                                offset: Offset(1.0, 2.0))
+                          ]),
+                      height: 30,
+                      width: 300,
+                      child: TextFormField(
+                        enabled: false,
+                        cursorWidth: 0.5,
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(left: 20, bottom: 16.5),
+                            hintText: "Bank",
+                            hintStyle:
+                                TextStyle(fontSize: 13, color: Color(0xff263238)),
+                            border: InputBorder.none),
+                      ),
                     ),
                   ),
                   SizedBox(height: 10),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(32),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 3,
-                              offset: Offset(1.0, 2.0))
-                        ]),
-                    height: 30,
-                    width: 300,
-                    child: TextFormField(
-                      cursorWidth: 0.5,
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.only(left: 20,bottom: 16.5),
-                          hintText: "Cash on Delivery",
-                          hintStyle:
-                              TextStyle(fontSize: 13, color: Color(0xff263238)),
-                          border: InputBorder.none),
+                  InkWell(
+                    onTap: ()async{
+                      selected="cod";
+                      setState(() {
+
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: selected=="cod"?Colors.red:Colors.white,
+                          borderRadius: BorderRadius.circular(32),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 3,
+                                offset: Offset(1.0, 2.0))
+                          ]),
+                      height: 30,
+                      width: 300,
+                      child: TextFormField(
+                        cursorWidth: 0.5,
+                        enabled: false,
+                        decoration: InputDecoration(
+                            contentPadding: EdgeInsets.only(left: 20,bottom: 16.5),
+                            hintText: "Cash on Delivery",
+                            hintStyle:
+                                TextStyle(fontSize: 13, color: Color(0xff263238)),
+                            border: InputBorder.none),
+                      ),
                     ),
                   ),
                 ],
@@ -361,18 +448,40 @@ class order_details extends StatelessWidget {
               width: 130,
               height: 30,
               child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (BuildContext context) {
-                      return order_details_one();
-                    }));
+                  onPressed: () async{
+                    SharedPreferences prefs = await SharedPreferences.getInstance();
+                    String userId = prefs.getString('userId').toString();
+                    Map<String, dynamic> body = {
+                      "pickupLongitude": widget.l1,
+                      "pickupLatitude": widget.l2,
+                      "dropoffLongitude": widget.l3,
+                      "dropoffLatitude": widget.l4,
+                      "packageSize": packageSize.text.toString(),
+                      "packageType": packageType.text.toString(),
+                      "packageWeight": packageWeight.text.toString(),
+                      "receiverName": receiverName.text.toString(),
+                      "receiverNumber": receiverNUmber.text.toString(),
+                      "paymentMethod": selected,
+                      "userId": userId,
+                      "vehichleType": widget.type,
+                      "status": "New",
+                    };
+                    print(body);
+                    ApiServiceForStoreOrder.storeOrder(body).then((value) {
+                      if(value==true){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) { return track_order(); }));
+                      }
+                      else{
+                        print("Error");
+                      }
+                    });
                   },
                   style: ElevatedButton.styleFrom(
                       primary: Color(0xff87D8EA),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32))),
                   child: Text(
-                    "Request",
+                    "Next",
                     style: TextStyle(fontSize: 15, color: Colors.white),
                   )),
             ),

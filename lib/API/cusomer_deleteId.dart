@@ -15,7 +15,7 @@ class ApiServiceForDeleteUserId{
     final respone = await http.post(Uri.parse(URL) , headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': 'Bearer $token',
+
     });
     final String res = respone.body;
     if(res != "null"){

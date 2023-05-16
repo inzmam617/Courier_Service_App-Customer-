@@ -1,13 +1,14 @@
 import 'dart:io';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
+import 'Screens/Bottom bar/Bottom_bar.dart';
 import 'Screens/StartingPages/PageView.dart';
 
 void main() {
   HttpOverrides.global = MyHttpOverrides();
 
-  runApp(const MaterialApp(debugShowCheckedModeBanner: false, home: MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +16,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: PageViewPage());
+    return ProviderScope(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(body:
+        // Bottom_bar()
+        PageViewPage()
+        ),
+      ),
+    );
   }
 }
 

@@ -18,7 +18,7 @@ class ApiServiceForLogout{
    final response = await http.post(Uri.parse(URL) ,  headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Authorization': 'Bearer $token',
+
    });
    final String res = response.body;
    if(res != "null"){

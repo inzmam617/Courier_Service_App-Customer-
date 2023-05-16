@@ -11,6 +11,7 @@ class ApiServiceForUserInfo {
     String id = prefs.getString('userId').toString();
     String token = prefs.getString('token').toString();
     String URL = "${baseUrl}customers/$id";
+    print(URL);
 
     // print('id');
     // print(id);
@@ -22,7 +23,6 @@ class ApiServiceForUserInfo {
     final response = await http.get(Uri.parse(URL), headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': 'Bearer $token',
     });
     final String res = response.body;
     if (res != 'null') {
@@ -33,9 +33,9 @@ class ApiServiceForUserInfo {
 
 
         final jsonData = json.decode(res) as Map<String, dynamic>;
-        prefs.setString("name", jsonData["message"]["name"]);
-        prefs.setString("email", jsonData["message"]["email"]);
-
+        print(jsonData);
+         prefs.setString("name", jsonData["message"]["name"]).toString();
+         prefs.setString("email", jsonData["message"]["email"]).toString();
         return UserInfo.fromJson(jsonData);
       } catch (e) {
         print(e.toString());

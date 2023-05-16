@@ -115,6 +115,7 @@ class _SignInState extends State<SignIn> {
                         backgroundColor:
                             MaterialStateProperty.all(Color(0xff87D8EA))),
                     onPressed: () {
+
                       setState(() {
 
                         _loading = true;

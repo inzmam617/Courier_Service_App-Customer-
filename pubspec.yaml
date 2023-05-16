@@ -40,6 +40,18 @@ dependencies:
   flutter_switch: ^0.3.2
   shared_preferences: ^2.1.0
   modal_progress_hud_nsn: ^0.3.0
+  socket_io_client: ^2.0.1
+  google_maps_flutter: ^2.2.6
+  flutter_sliding_up_panel: ^2.0.1
+  location: ^4.4.0
+  flutter_polyline_points:
+  url_launcher:
+  google_places_for_flutter: ^1.0.1
+  address_search_field: ^5.0.3
+  riverpod: ^1.0.3
+  geocoding: ^2.0.1
+  intl: ^0.18.1
+
 
 dev_dependencies:
   flutter_test:
